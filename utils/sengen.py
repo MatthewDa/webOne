@@ -1,16 +1,23 @@
 import random
 import proceduralRandom
 import smartDict
+from reader import read_file as read
 
-subjects = ['he','she','it','Yo Yo Ma','yo mama']
-verbs = ['ran','threw up','laughed','exploded']
-verbsH = ['pushed','smuggled','threw','helped','hacked']
-nouns = ['boy','girl','puppy','cat']
-adjectives = ['beautiful','happy','cute','electric','sad','hungry','amazing','incredible','unbelievable','astounding','awesome','huge','funny','bored','detered']
-adverbs = ['swiftly','quickly','hastily','sadly','happily','vigourously','brutally']
+
+#The text directory
+TEXT_DIR = '../data/'
+
+
+subjects = read(TEXT_DIR + 'senSubjects').split(',')
+verbs = read(TEXT_DIR + 'senVerbs').split(',')
+verbsH = read(TEXT_DIR + 'senVerbsH').split(',')
+nouns = read(TEXT_DIR + 'senNouns').split(',')
+adjectives = read(TEXT_DIR + 'senAdjectives').split(',')
+adverbs = read(TEXT_DIR + 'senAdverbs').split(',')
 
 articles = ['the','a']
 vowels = ['a','e','i','o','u','y']
+
 
 def oneOf(theList,minRange = 1):
     return theList[random.randint(minRange - 1,len(theList)-1)]
@@ -34,6 +41,18 @@ def adjs():
         return retText
 
 def sengen():
+    if subjects[-1][-1:] == '\n':
+        subjects[-1] = subjects[-1][:-1]
+    if verbs[-1][-1:] == '\n':
+        verbs[-1] = verbs[-1][:-1]
+    if verbsH[-1][-1:] == '\n':
+        verbsH[-1] = verbsH[-1][:-1]
+    if nouns[-1][-1:] == '\n':
+        nouns[-1] = nouns[-1][:-1]
+    if adjectives[-1][-1:] == '\n':
+        adjectives[-1] = adjectives[-1][:-1]
+    if adverbs[-1][-1:] == '\n':
+        adverbs[-1] = adverbs[-1][:-1]
     genAdj = random.randint(0,1)
     genAdv = random.randint(0,1)
     Noun  = oneOf(nouns)
@@ -56,7 +75,7 @@ def sengen():
     if typeV == 4:
         string = Art + ' ' + Adj + Noun + ' ' + oneOf(verbs) + ' ' + oneOf(adverbs)
     string = capitalize(string)
-    return string,typeV
+    return string
 
 
 def capitalize(text):
