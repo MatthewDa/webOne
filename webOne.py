@@ -13,24 +13,30 @@ def homepage():
 def senGenPage():
     return render_template("senGenPage.html",height = 600, title = 'Team Serpent - Sentence Generator',sentence = sengen())
 
-@derp.route("/markov/")
+@derp.route("/markov/",methods = ['POST','GET'])
 def markovPage():
-    return render_template("markovPage.html",height = 400, title = 'Team Serpent - Markov Chains')
+    if request.method == 'GET':
+        return render_template("markovPage.html",height = 400, title = 'Team Serpent - Markov Chains')
+    if request.method == 'POST':
+        results = request.form
+        newList = results.getlist("books")
+        i = 0
+        while i <= len(newList)
+              newList[i] = newList[i][1:]
+        return render_template("markovPage.html",text = newList,height = 400, title = 'Team Serpent - Markov Chains')
+        
 
 @derp.route("/ceasarcipher/", methods=["GET","POST"])
 def cipherPage():
     if request.method=="POST":
         results=request.form
-        if results["mode"] != "" and results["letter1"] != "" and results["letter2"] != "" and results["message"] != "":
-            if results["mode"]=="e":
-                modeText="Encrypted"
-                resultText=ceasarCipher(results["letter1"], results["letter2"], results["message"])
-            if results["mode"]=="d":
-                modeText="Decrypted"
-                resultText=ceasarDecipher(results["letter1"], results["letter2"], results["message"])
-            return render_template("cipherPage.html",height = 400, title = 'Team Serpent - Ceaser Cipher', mode=modeText, result=resultText)
-        else:
-            return render_template("cipherPage.html",height = 400, title = 'Team Serpent - Ceaser Cipher', mode="Error", result="You must fill out all parts of the form!")
+        if results["mode"]=="e":
+            modeText="Encrypted"
+            resultText=ceasarCipher(results["letter1"], results["letter2"], results["message"])
+        if results["mode"]=="d":
+            modeText="Decrypted"
+            resultText=ceasarDecipher(results["letter1"], results["letter2"], results["message"])
+        return render_template("cipherPage.html",height = 400, title = 'Team Serpent - Ceaser Cipher', mode=modeText, result=resultText)
     elif request.method=="GET":
         return render_template("cipherPage.html",height = 400, title = 'Team Serpent - Ceaser Cipher', mode="Encrypted/Decrypted", result="")
 

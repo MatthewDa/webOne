@@ -2,5 +2,14 @@
 
   <title>Markov Chain-based Sentence Generator</title>
 {%block content%}
-  <p>markov</p>
+  <form action="/markov/" method="POST">
+   <input type="checkbox" name="books" value="grimm">Grimm's Fairy Tales<br>
+   <input type="checkbox" name="books" value="junglebook">The Jungle Book<br>
+   <input type="checkbox" name="books" value="oz">The Wizard of Oz<br>
+   <input type="checkbox" name="books" value="tom">Tom Sawyer<br>
+   <input type="checkbox" name="books" value="wonderland">Alice in Wonderland<br>
+   <input type="submit" value="Submit">
+  </form>
+  <br>
+  <p>{{text}}</p>
 {%endblock%}
