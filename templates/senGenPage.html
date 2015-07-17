@@ -1,8 +1,21 @@
 <!DOCTYPE html>
 <html>
  <head>
+  <title>Random Sentence Generator</title>
+  <link rel="stylesheet" type="text/css" href="/static/styleSenGenPage.css">
+  <link rel="shortcut icon" href="../static/img/Serpent.jpg">
+  <link rel="apple-touch-icon" href="../static/img/Serpent.jpg">
  </head>
  <body>
-  <p>senGen</p>
+  <h1>Sentence Generator:</h1>
+  <br>
+  <form>
+  <input Type="button" value="New Sentences" onClick="history.go(0)">
+  </form>
+  <br>
+  <p>{{sentence}}</p>
+  <img src="../static/img/Sentence.jpg" alt="Sentences" style="width:304px;height:228px;">
+  <br>
+  <a href="/">Back to Home</a>
  </body>
 </html>

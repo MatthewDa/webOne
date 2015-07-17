@@ -1,5 +1,6 @@
 #!/usr/bin/python
 from flask import Flask, render_template
+from utils.sengen import sengen
 
 derp=Flask(__name__)
 
@@ -9,7 +10,7 @@ def homepage():
 
 @derp.route("/senGen/")
 def senGenPage():
-    return render_template("senGenPage.html")
+    return render_template("senGenPage.html",sentence = sengen())
 
 @derp.route("/markov/")
 def markovPage():

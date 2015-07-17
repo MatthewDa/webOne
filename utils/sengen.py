@@ -41,6 +41,7 @@ def adjs():
         return retText
 
 def sengen():
+    length = random.randint(20,30)
     if subjects[-1][-1:] == '\n':
         subjects[-1] = subjects[-1][:-1]
     if verbs[-1][-1:] == '\n':
@@ -53,29 +54,35 @@ def sengen():
         adjectives[-1] = adjectives[-1][:-1]
     if adverbs[-1][-1:] == '\n':
         adverbs[-1] = adverbs[-1][:-1]
-    genAdj = random.randint(0,1)
-    genAdv = random.randint(0,1)
-    Noun  = oneOf(nouns)
-    Noun2 = oneOf(nouns)
-    Adj = adjs()
-    Art = oneOf(articles)
-    ArtNoun = oneOf(articles)
-    typeV = random.randint(1,4)
-    if Adj != '' and Art == 'a':
-        if vowels.count(Adj[0]) != 0:
-            Art = 'an'
-    if vowels.count(Noun2[0]) != 0 and ArtNoun == 'a':
-        ArtNoun = 'an'
-    if typeV == 1:
-        string =  oneOf(subjects) + ' ' + oneOf(verbsH) + ' ' + oneOf(articles) + ' ' + Noun
-    if typeV == 2:
-        string =  Art + ' ' + Adj + Noun + ' ' + oneOf(verbsH) + ' ' + ArtNoun + ' ' + Noun2
-    if typeV == 3:
-        string = oneOf(subjects) + ' ' + oneOf(verbsH) + ' ' + Art + ' ' + Noun + ', ' + oneOf(adverbs)
-    if typeV == 4:
-        string = Art + ' ' + Adj + Noun + ' ' + oneOf(verbs) + ' ' + oneOf(adverbs)
-    string = capitalize(string)
-    return string
+    stringRet = ''
+    index = 1
+    while index <= length:
+        string = ''
+        genAdj = random.randint(0,1)
+        genAdv = random.randint(0,1)
+        Noun  = oneOf(nouns)
+        Noun2 = oneOf(nouns)
+        Adj = adjs()
+        Art = oneOf(articles)
+        ArtNoun = oneOf(articles)
+        typeV = random.randint(1,4)
+        if Adj != '' and Art == 'a':
+            if vowels.count(Adj[0]) != 0:
+                Art = 'an'
+        if vowels.count(Noun2[0]) != 0 and ArtNoun == 'a':
+            ArtNoun = 'an'
+        if typeV == 1:
+            string =  oneOf(subjects) + ' ' + oneOf(verbsH) + ' ' + oneOf(articles) + ' ' + Noun
+        if typeV == 2:
+            string =  Art + ' ' + Adj + Noun + ' ' + oneOf(verbsH) + ' ' + ArtNoun + ' ' + Noun2
+        if typeV == 3:
+            string = oneOf(subjects) + ' ' + oneOf(verbsH) + ' ' + Art + ' ' + Noun + ', ' + oneOf(adverbs)
+        if typeV == 4:
+            string = Art + ' ' + Adj + Noun + ' ' + oneOf(verbs) + ' ' + oneOf(adverbs)
+        string = capitalize(string) + '. '
+        stringRet = stringRet + string
+        index += 1
+    return stringRet
 
 
 def capitalize(text):
