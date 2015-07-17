@@ -5,7 +5,7 @@ from reader import read_file as read
 
 
 #The text directory
-TEXT_DIR = '../data/'
+TEXT_DIR = 'data/'
 
 
 subjects = read(TEXT_DIR + 'senSubjects').split(',')
