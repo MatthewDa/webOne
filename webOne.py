@@ -6,19 +6,19 @@ derp=Flask(__name__)
 
 @derp.route("/")
 def homepage():
-    return render_template("homepage.html")
+    return render_template("homepage.html",title = 'Team Serpent - Home')
 
 @derp.route("/senGen/")
 def senGenPage():
-    return render_template("senGenPage.html",sentence = sengen())
+    return render_template("senGenPage.html",title = 'Team Serpent - Sentence Generator',sentence = sengen())
 
 @derp.route("/markov/")
 def markovPage():
-    return render_template("markovPage.html")
+    return render_template("markovPage.html",title = 'Team Serpent - Markov Chains')
 
 @derp.route("/ceasarcipher/letter/encrypt")
 def cipherPage():
-    return render_template("cipherPage.html")
+    return render_template("cipherPage.html",title = 'Team Serpent - Ceaser Cipher')
 
 
 if __name__=="__main__":
