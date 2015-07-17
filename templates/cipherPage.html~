@@ -2,7 +2,7 @@
 
   <title>Caesar Cipher</title>
 {%block content%}
-  <form action="/ceasarcipher/" method="POST">
+  <form action="webCipher.py" method="POST">
    Letter:<input type="text" name="letter1"> Letter when encrypted:<input type="text" name="letter2"><br>
    <input type="radio" name="mode" value="e">Encrypt<br>
    <input type="radio" name="mode" value="d">Decrypt<br><br>

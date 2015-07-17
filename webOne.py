@@ -1,6 +1,7 @@
 #!/usr/bin/python
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from utils.sengen import sengen
+from utils.CeasarCipher import ceasarCipher, ceasarDecipher
 
 derp=Flask(__name__)
 
@@ -16,10 +17,19 @@ def senGenPage():
 def markovPage():
     return render_template("markovPage.html",height = 400, title = 'Team Serpent - Markov Chains')
 
-@derp.route("/ceasarcipher")
+@derp.route("/ceasarcipher/", methods=["GET","POST"])
 def cipherPage():
-    return render_template("cipherPage.html",height = 400, title = 'Team Serpent - Ceaser Cipher')
-
+    if request.method=="POST":
+        results=request.form
+        if results["mode"]=="e":
+            modeText="Encrypted"
+            resultText=ceasarCipher(results["letter1"], results["letter2"], results["message"])
+        if results["mode"]=="d":
+            modeText="Decrypted"
+            resultText=ceasarDecipher(results["letter1"], results["letter2"], results["message"])
+        return render_template("cipherPage.html",height = 400, title = 'Team Serpent - Ceaser Cipher', mode=modeText, result=resultText)
+    elif request.method=="GET":
+        return render_template("cipherPage.html",height = 400, title = 'Team Serpent - Ceaser Cipher', mode="Encrypted/Decrypted", result="")
 
 if __name__=="__main__":
     derp.debug=True

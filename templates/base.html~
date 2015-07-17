@@ -16,7 +16,7 @@
      <li><b><a class="navlink" href="/">Home</a></b></li>
      <li><b><a class="navlink" href="/senGen/">Sentence Generator</a></b></li>
      <li><b><a class="navlink" href="/markov/">Markov Chain Text Generator</a></b></li>
-     <li><b><a class="navlink" href="/ceasarcipher/">Ceasar Cipher Encrypter and Decrypter</a></b></li>
+     <li><b><a class="navlink" href="/ceasarcipher">Ceasar Cipher Encrypter and Decrypter</a></b></li>
     </ul>
     <br><br><br><br><br><br><br><br><br>
    </div>
