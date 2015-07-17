@@ -21,13 +21,16 @@ def markovPage():
 def cipherPage():
     if request.method=="POST":
         results=request.form
-        if results["mode"]=="e":
-            modeText="Encrypted"
-            resultText=ceasarCipher(results["letter1"], results["letter2"], results["message"])
-        if results["mode"]=="d":
-            modeText="Decrypted"
-            resultText=ceasarDecipher(results["letter1"], results["letter2"], results["message"])
-        return render_template("cipherPage.html",height = 400, title = 'Team Serpent - Ceaser Cipher', mode=modeText, result=resultText)
+        if results["mode"] != "" and results["letter1"] != "" and results["letter2"] != "" and results["message"] != "":
+            if results["mode"]=="e":
+                modeText="Encrypted"
+                resultText=ceasarCipher(results["letter1"], results["letter2"], results["message"])
+            if results["mode"]=="d":
+                modeText="Decrypted"
+                resultText=ceasarDecipher(results["letter1"], results["letter2"], results["message"])
+            return render_template("cipherPage.html",height = 400, title = 'Team Serpent - Ceaser Cipher', mode=modeText, result=resultText)
+        else:
+            return render_template("cipherPage.html",height = 400, title = 'Team Serpent - Ceaser Cipher', mode="Error", result="You must fill out all parts of the form!")
     elif request.method=="GET":
         return render_template("cipherPage.html",height = 400, title = 'Team Serpent - Ceaser Cipher', mode="Encrypted/Decrypted", result="")
 
