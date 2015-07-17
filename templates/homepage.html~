@@ -1,5 +1,0 @@
-{% extends "base.html" %}
-
-{%block content%}
-	<p>Welcome to our webpage!</p><br><br><br><br><br><br><br><br><br><br><br><br>
-{%endblock%}

@@ -2,10 +2,15 @@ import random
 import proceduralRandom
 import smartDict
 from reader import read_file as read
+import os.path
 
 
 #The text directory
 TEXT_DIR = 'data/'
+
+if not os.path.isfile(TEXT_DIR+'senSubjects'):
+    TEXT_DIR = '../'+TEXT_DIR
+
 
 
 subjects = read(TEXT_DIR + 'senSubjects').split(',')

@@ -16,7 +16,7 @@ def senGenPage():
 def markovPage():
     return render_template("markovPage.html",height = 400, title = 'Team Serpent - Markov Chains')
 
-@derp.route("/ceasarcipher")
+@derp.route("/ceasarcipher/letter/encrypt")
 def cipherPage():
     return render_template("cipherPage.html",height = 400, title = 'Team Serpent - Ceaser Cipher')
 

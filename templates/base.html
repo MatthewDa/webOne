@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
  <head>
-  
+  <title>{{title}}</title>
   <link rel="stylesheet" type="text/css" href="/static/styleHome.css">
   <link rel="shortcut icon" href="../static/img/Serpent.jpg">
   <link rel="apple-touch-icon" href="../static/img/Serpent.jpg">
@@ -11,16 +11,16 @@
    <div id="c">
     <h1>Team Serpent's Webpage</h1>
    </div>
-   <div id="e">
+   <div id="e" style="height: {{height}}px;">
     <ul>
      <li><b><a class="navlink" href="/">Home</a></b></li>
      <li><b><a class="navlink" href="/senGen/">Sentence Generator</a></b></li>
      <li><b><a class="navlink" href="/markov/">Markov Chain Text Generator</a></b></li>
-     <li><b><a class="navlink" href="/ceasarcipher/letter/encrypt">Ceasar Cipher Encrypter and Decrypter</a></b></li>
+     <li><b><a class="navlink" href="/ceasarcipher">Ceasar Cipher Encrypter and Decrypter</a></b></li>
     </ul>
     <br><br><br><br><br><br><br><br><br>
    </div>
-   <div id="d">
+   <div id="d" style="height: {{height}}px;">
     {% block content %}
     {% endblock %}
    </div>
