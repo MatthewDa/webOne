@@ -15,7 +15,7 @@ import String_List_Conversion
 import fileRead
 
 #reading from big fat nonsensical word list and adding to the original good lists
-wordList=fileRead.csvFileReadDict("wordList.csv")
+wordList=fileRead.csvFileReadDict("/data/wordList.csv")
 subjectNouns=subjectNouns+wordList["nouns"]
 presVerbs=presVerbs+wordList["verbs"]
 adjectives=adjectives+wordList["adjectives"]
