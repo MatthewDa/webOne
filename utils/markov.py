@@ -1,7 +1,8 @@
 import reader
 import random
 dic = {}
-books = ["tom","grimm","wonderland","junglebook","oz"]
+#books = ["tom","grimm","wonderland","junglebook","oz"]
+books = ["allBooks"]
 text = ""
 keynum = 3
 
@@ -97,4 +98,4 @@ def create(dir,book):
     return text
 
 if __name__ == '__main__':
-    print create("../utils/data/books/","historyofafrica")
+    print create("../data/","allBooks")

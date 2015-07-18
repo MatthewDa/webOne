@@ -2,6 +2,8 @@
 from flask import Flask, render_template, request
 from utils.sengen import sengen
 from utils.CeasarCipher import ceasarCipher, ceasarDecipher
+from utils.booksWrite import writeB
+from utils.markov import create
 
 derp=Flask(__name__)
 
@@ -20,10 +22,15 @@ def markovPage():
     if request.method == 'POST':
         results = request.form
         newList = results.getlist("books")
-        i = 0
-        while i <= len(newList)
-              newList[i] = newList[i][1:]
-        return render_template("markovPage.html",text = newList,height = 400, title = 'Team Serpent - Markov Chains')
+        q = open('data/bookList','w')
+        q.write('')
+        q.close()
+        q = open('data/bookList','a')
+        for i in newList:
+            q.write(i + '\n')
+        q.close()
+        writeB()
+        return render_template("markovPage.html",text = create("data/","allBooks"),height = 400, title = 'Team Serpent - Markov Chains')
         
 
 @derp.route("/ceasarcipher/", methods=["GET","POST"])
