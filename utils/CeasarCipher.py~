@@ -1,7 +1,17 @@
 #letter1 must come before letter2 in the alphabet at the moment
 def ceasarCipher (letter1,letter2,code):
-    a=ord(letter1)
-    b=ord(letter2)
+    if ord(letter1[0])>=ord("a") and ord(letter1[0])<=ord("z"):
+        a=ord(letter1[0])
+    elif if ord(letter1[0])>=ord("A") and ord(letter1[0])<=ord("Z"):
+        a=ord(letter1[0])+(ord("a")-ord("A"))
+    else:
+        return "Cipher keys must be letters!"
+    if ord(letter2[0])>=ord("a") and ord(letter2[0])<=ord("z"):
+        b=ord(letter2[0])
+    elif if ord(letter2[0])>=ord("A") and ord(letter2[0])<=ord("Z"):
+        b=ord(letter2[0])+(ord("a")-ord("A"))
+    else:
+        return "Cipher keys must be letters!"
     rotated=b-a
     if rotated<0:
         rotated=26+rotated
@@ -25,8 +35,18 @@ def ceasarCipher (letter1,letter2,code):
     return cipheredCode
 
 def ceasarDecipher (letter1,letter2,code):
-    a=ord(letter1)
-    b=ord(letter2)
+    if ord(letter1[0])>=ord("a") and ord(letter1[0])<=ord("z"):
+        a=ord(letter1[0])
+    elif if ord(letter1[0])>=ord("A") and ord(letter1[0])<=ord("Z"):
+        a=ord(letter1[0])+(ord("a")-ord("A"))
+    else:
+        return "Cipher keys must be letters!"
+    if ord(letter2[0])>=ord("a") and ord(letter2[0])<=ord("z"):
+        b=ord(letter2[0])
+    elif if ord(letter2[0])>=ord("A") and ord(letter2[0])<=ord("Z"):
+        b=ord(letter2[0])+(ord("a")-ord("A"))
+    else:
+        return "Cipher keys must be letters!"
     rotated=b-a
     decipheredCode=""
     for i in code:
