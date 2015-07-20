@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+  <title>Markov Chain-based Sentence Generator</title>
+{%block content%}
+  <form action="/markov/" method="POST">
+   <input type="checkbox" name="books" value="grimm",checked = "{{c_grimm}}">Grimm's Fairy Tales<br>
+   <input type="checkbox" name="books" value="junglebook",checked = "{{c_junglebook}}">The Jungle Book<br>
+   <input type="checkbox" name="books" value="oz",checked = "{{c_oz}}">The Wizard of Oz<br>
+   <input type="checkbox" name="books" value="tom",checked = "{{c_tom}}">Tom Sawyer<br>
+   <input type="checkbox" name="books" value="wonderland",checked = "{{c_wonderland}}">Alice in Wonderland<br>
+   <input type="submit" value="Generate Text">
+  </form>
+  <br>
+  <p>{{text}}</p>
+{%endblock%}

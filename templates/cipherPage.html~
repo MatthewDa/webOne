@@ -3,11 +3,11 @@
   <title>Caesar Cipher</title>
 {%block content%}
   <form action="/ceasarcipher/" method="POST">
-   Letter:<input type="text" name="letter1" value = {{l1}}> Letter when encrypted:<input type="text" name="letter2" value = {{l2}}><br>
+   Letter:<input type="text" name="letter1"> Letter when encrypted:<input type="text" name="letter2"><br>
    <input type="radio" name="mode" value="e" checked="checked">Encrypt<br>
    <input type="radio" name="mode" value="d">Decrypt<br><br>
    <u><b>Message</b></u><br>
-   <input type="text" name="message" value = {{text}}><br>
+   <input type="text" name="message"><br>
    <input type="submit" value="Submit">
   </form>
   <br><br>

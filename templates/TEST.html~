@@ -1,0 +1,17 @@
+<DOCTYPE html>
+ <html>
+  <title> POTATO YAY </title>
+ <body>
+  <form action = "/test2" method = "POST">
+   First Name: <input type = "text" name = "txt_firstname" > <br>
+   Last Name:  <input type = "text" name = "txt_lastname" > <br>
+   <br>
+   Gender: <br>
+   Neither<input type = "Radio" name = "g" > <br>
+   Forgot<input type = "Radio" name = "g" > <br>
+   One or the other<input type = "Radio" name = "g" > <br>
+   All of the above<input type = "Radio" name = "g" > <br>
+   <input type = "submit" value = "submit" >
+  </form>
+ </body>
+</html>
