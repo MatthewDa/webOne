@@ -1,6 +1,5 @@
 import random
 import proceduralRandom
-import smartDict
 from reader import read_file as read
 import os.path
 
