@@ -60,18 +60,18 @@ def cipherPage():
 
     if request.method=="POST":
         results=request.form
-        if results["mode"]=="e":
-            modeText="Encrypted"
-        elif results["mode"]=="d":
-            modeText="Decrypted"
-        resultText=ceasarDecipher(results["letter1"], results["letter2"], results["message"])
-        cipher_d_l1 = results["letter1"]
-        cipher_d_l2 = results["letter2"]
-        cipher_d_t = results["message"]    
-        
-        return render_template("cipherPage.html",height = 400, title = 'Team Serpent - Ceaser Cipher', mode=modeText, result=resultText,l1 = cipher_d_l1,l2 = cipher_d_l2,text = cipher_d_t)
+        if results["letter1"] != "" and results["letter2"] != "" and results["message"] != "" and results["mode"] != "":
+            if results["mode"]=="e":
+                modeText="Encrypted"
+                resultText=ceasarCipher(results["letter1"], results["letter2"], results["message"])
+            if results["mode"]=="d":
+                modeText="Decrypted"
+                resultText=ceasarDecipher(results["letter1"], results["letter2"], results["message"])
+            return render_template("cipherPage.html",height = 400, title = 'Team Serpent - Ceaser Cipher', mode=modeText, result=resultText)
+        else:
+            return render_template("cipherPage.html",height = 400, title = 'Team Serpent - Ceaser Cipher', mode="Error", result="You must fill in every box!")
     elif request.method=="GET":
-        return render_template("cipherPage.html",height = 400, title = 'Team Serpent - Ceaser Cipher', mode="Encrypted/Decrypted", result="",l1 = "",l2 = "",text = "")
+        return render_template("cipherPage.html",height = 400, title = 'Team Serpent - Ceaser Cipher', mode="Encrypted/Decrypted", result="")
 
 
 
