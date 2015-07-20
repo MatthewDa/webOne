@@ -22,8 +22,10 @@ def markovPage():
     if request.method == 'POST':
         results = request.form
         newList = results.getlist("books")
+        if newList == []:
+            return render_template("markovPage.html",text = "ERROR[7]:\n No checkboxes checked",height = 400, title = 'Team Serpent - Markov Chains')
         q = open('data/bookList','w')
-        q.write('oz')
+        q.write('')
         q.close()
         q = open('data/bookList','a')
         for i in newList:
