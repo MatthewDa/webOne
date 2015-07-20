@@ -23,7 +23,7 @@ def markovPage():
         results = request.form
         newList = results.getlist("books")
         q = open('data/bookList','w')
-        q.write('')
+        q.write('oz')
         q.close()
         q = open('data/bookList','a')
         for i in newList:
